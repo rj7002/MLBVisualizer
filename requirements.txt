@@ -3,7 +3,6 @@ matplotlib
 numpy
 plotly
 streamlit
-math
 pandas
 datetime
 requests
