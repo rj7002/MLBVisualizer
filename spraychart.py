@@ -20,6 +20,11 @@ from datetime import datetime,timedelta
 import requests
 from scipy.interpolate import CubicSpline
 
+st.set_page_config(
+    page_title="MLB Visualizer",  # This sets the browser tab title
+    page_icon="⚾",               # This sets the page icon to a baseball emoji
+    layout="wide"                # This sets the page layout to wide
+)
 def generate_random_color():
     """Generate a random hex color."""
     return "#{:06x}".format(random.randint(0, 0xFFFFFF))
