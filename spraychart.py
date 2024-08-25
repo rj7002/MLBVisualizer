@@ -884,7 +884,7 @@ fig.update_layout(
         ),
         yaxis=dict(
             title='',
-            range=[0, 80] ,
+            range=[-5, 80] ,
             
              showticklabels=False,
                         showgrid=False, # Set the range for the y-axis
