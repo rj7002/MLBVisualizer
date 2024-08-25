@@ -797,7 +797,7 @@ def plot_curve(x_start, y_start, z_start, x_end, y_end, z_end, pfx_x, pfx_z):
 
 for i in range(len(df2)):
     x_start = df2['release_pos_x'].iloc[i]
-    y_start = 80
+    y_start = 100
     z_start = df2['release_pos_z'].iloc[i]
     x_end = df2['plate_x'].iloc[i]
     y_end = 0
@@ -884,7 +884,7 @@ fig.update_layout(
         ),
         yaxis=dict(
             title='',
-            range=[-5, 80] ,
+            range=[0, 100] ,
             
              showticklabels=False,
                         showgrid=False, # Set the range for the y-axis
@@ -892,8 +892,8 @@ fig.update_layout(
         zaxis=dict(
             title='',
             range=[0, 18],
-            showbackground=True,
-            backgroundcolor='#006400',
+            # showbackground=True,
+            # backgroundcolor='#006400',
 
                         showticklabels=False,
                         showgrid=False,
