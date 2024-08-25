@@ -19,7 +19,6 @@ import pandas as pd
 from datetime import datetime,timedelta
 import requests
 from scipy.interpolate import CubicSpline
-
 st.set_page_config(
     page_title="MLB Visualizer",  # This sets the browser tab title
     page_icon="⚾",               # This sets the page icon to a baseball emoji
@@ -253,8 +252,48 @@ z_valueg = 0  # Fixed z value
 fig = go.Figure()
 
 # Loop through pairs of points to create arcs
+launch_angles = df2['launch_angle'].tolist()
+
 plays2 = len(plays)
-for i in range(len(x_coords) - 1):
+for i in range(len(x_coords)):
+    des = plays[i]
+    pitcher = pitchers[i]
+    ys = dists[i]
+    pitch = pitchtypes[i]
+    color = colors[i]
+    inning = innings[i]
+    x1 = x_coords[i]
+    y1 = y_coords[i]
+    x2 = x_coords2[i]
+    y2 = y_coords2[i]
+    launch_angle = launch_angles[i]
+    
+    # Define the start and end points
+    p1 = np.array([x1, y1, z_value])
+    p2 = np.array([x2, y2, z_value])
+    
+    # Adjust the apex height based on the launch angle
+    # Example conversion: Adjust this scaling factor as needed
+    height_scaling_factor = 0.1  # Adjust this factor to change how launch angle affects height
+    h = height_scaling_factor * np.tan(np.radians(launch_angle)) * np.linalg.norm(p2 - p1)
+    
+    # Adjust the apex position based on the calculated height
+    apex = np.array([0.5 * (x1 + x2), 0.5 * (y1 + y2), h])
+    
+    # Generate arc points
+    x, y, z = generate_arc_points(p1, p2, apex)
+    
+    # Add arc trace to figure
+    fig.add_trace(go.Scatter3d(
+        x=x, y=y, z=z,
+        mode='lines',
+        line=dict(width=5),
+        name=f'Arc {i}',
+        hoverinfo='text',
+        hovertext=f'{des}<br>Pitch Type: {pitch}<br>Inning: {inning}<br>Pitcher: {pitcher}<br>{ys}',
+
+    ))
+for i in range(len(x_coords)):
     x1 = x_coords[i]
     y1 = y_coords[i]
     x2 = x_coords2[i]
@@ -521,16 +560,16 @@ for i in range(len(x_coords) - 1):
         hovertext='Home Base'
     ))
     random_color = generate_random_color()
-    fig.add_trace(go.Scatter3d(
-        x=x, y=y, z=z,
-        mode='lines',
-        line=dict(width=6,color=color),
-        name=f'Arc {i + 1}',
-        hoverinfo='text',
-        hovertext=f'{des}<br>Pitch Type: {pitch}<br>Inning: {inning}<br>Pitcher: {pitcher}<br>{ys}',
+    # fig.add_trace(go.Scatter3d(
+    #     x=x, y=y, z=z,
+    #     mode='lines',
+    #     line=dict(width=6,color=color),
+    #     name=f'Arc {i + 1}',
+    #     hoverinfo='text',
+    #     hovertext=f'{des}<br>Pitch Type: {pitch}<br>Inning: {inning}<br>Pitcher: {pitcher}<br>{ys}',
 
-        # opacity=0.5
-    ))
+    #     # opacity=0.5
+    # ))
     
     # Add start and end points
     fig.add_trace(go.Scatter3d(
