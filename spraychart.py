@@ -892,6 +892,8 @@ fig.update_layout(
         zaxis=dict(
             title='',
             range=[0, 18],
+            showbackground=True,
+            backgroundcolor='#006400',
 
                         showticklabels=False,
                         showgrid=False,
