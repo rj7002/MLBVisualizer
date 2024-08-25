@@ -287,7 +287,7 @@ for i in range(len(x_coords)):
     fig.add_trace(go.Scatter3d(
         x=x, y=y, z=z,
         mode='lines',
-        line=dict(width=5),
+        line=dict(width=5,color=color),
         name=f'Arc {i}',
         hoverinfo='text',
         hovertext=f'{des}<br>Pitch Type: {pitch}<br>Inning: {inning}<br>Pitcher: {pitcher}<br>{ys}',
