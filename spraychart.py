@@ -790,11 +790,18 @@ fig.add_trace(go.Scatter3d(
      hovertext=df2['pitch_name']
 ))
 # Add lines connecting release points to adjusted plate positions
-def plot_curve(x_start, y_start, z_start, x_end, y_end, z_end, pfx_x, pfx_z):
+def plot_curve(x_start, y_start, z_start, x_end, y_end, z_end, pfx_x, pfx_z, pitch_name):
     t = np.linspace(0, 1, 100)  # 100 points for smooth curve
+    
+    # Adjust pfx_x and pfx_z based on pitch_name
+    if pitch_name in ["Curveball", "Knuckle Curve"]:
+        pfx_x = -pfx_x  # Flip the effect along the x-axis
+        pfx_z = -pfx_z  # Optionally, flip the effect along the z-axis if needed
+
     x_curve = x_start + (x_end - x_start) * t + pfx_x * t * (1 - t)
     y_curve = y_start + (y_end - y_start) * t
     z_curve = z_start + (z_end - z_start) * t + pfx_z * t * (1 - t)
+    
     return x_curve, y_curve, z_curve
 
 for i in range(len(df2)):
@@ -811,7 +818,7 @@ for i in range(len(df2)):
     pitcher2 = pitchers[i]
     inning2 = innings[i]
     
-    x_curve, y_curve, z_curve = plot_curve(x_start, y_start, z_start, x_end, y_end, z_end, pfx_x, pfx_z)
+    x_curve, y_curve, z_curve = plot_curve(x_start, y_start, z_start, x_end, y_end, z_end, pfx_x, pfx_z,pitch2)
     
     fig.add_trace(go.Scatter3d(
         x=x_curve,
