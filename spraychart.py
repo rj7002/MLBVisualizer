@@ -643,7 +643,7 @@ if filterby != 'Type Hit':
         # for id in reversed(ids):
         #     display_player_image(id,250,'')
         for i in range(len(ids)):
-            display_player_image(ids[i],250,f'{selectp[i}')
+            display_player_image(ids[i],250,f'{selectp[i]}')
 col1, col2 = st.columns(2)
 with col1:
     st.plotly_chart(fig,use_container_width=True)
