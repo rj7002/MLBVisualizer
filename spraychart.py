@@ -905,7 +905,7 @@ fig.update_layout(
 # Show plot
 import streamlit as st
 with col2:
-    data = data[data['Name'].isin(selectp)]
+    # data = data[data['Name'].isin(selectp)]
     # if filterby != 'Pitcher':
     #     for index, row in data.iterrows():
     #         st.write(f"Name: {row['Name']}")
