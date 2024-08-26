@@ -109,7 +109,7 @@ else:
 
     # df2 = df[df['des'].str.contains('Rafael Devers', case=False, na=False)]
     df2.dropna(subset=['hc_x','hc_y'])
-    df2 = df2.drop_duplicates(subset='des')
+    df2 = df2.drop_duplicates(subset='')
     # df2 = df2[~df2['des'].str.contains('walks', case=False, na=False)]
     # df2 = df2[~df2['des'].str.contains('strike', case=False, na=False)]
     # df2 = df2[~df2['des'].str.contains('hit by pitch', case=False, na=False)]
@@ -817,6 +817,8 @@ for i in range(len(df2)):
     pitch2 = pitchtypes[i]
     pitcher2 = pitchers[i]
     inning2 = innings[i]
+    des2 = plays[i]
+
     
     x_curve, y_curve, z_curve = plot_curve(x_start, y_start, z_start, x_end, y_end, z_end, pfx_x, pfx_z,pitch2)
     
@@ -828,7 +830,7 @@ for i in range(len(df2)):
         line=dict(color=df2['color'].iloc[i], width=4),
         name=f'Pitch Path {i}',
         hoverinfo='text',
-        hovertext=f'{pitch2}<br>Inning: {inning2}<br>Pitcher: {pitcher2}',
+        hovertext=f'{des2}<br>{pitch2}<br>Inning: {inning2}<br>Pitcher: {pitcher2}',
     ))
 
 fig.add_trace(go.Scatter3d(
