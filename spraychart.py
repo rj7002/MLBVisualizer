@@ -109,7 +109,7 @@ else:
 
     # df2 = df[df['des'].str.contains('Rafael Devers', case=False, na=False)]
     df2.dropna(subset=['hc_x','hc_y'])
-    df2 = df2.drop_duplicates(subset='')
+    df2 = df2.drop_duplicates(subset='hc_x')
     # df2 = df2[~df2['des'].str.contains('walks', case=False, na=False)]
     # df2 = df2[~df2['des'].str.contains('strike', case=False, na=False)]
     # df2 = df2[~df2['des'].str.contains('hit by pitch', case=False, na=False)]
