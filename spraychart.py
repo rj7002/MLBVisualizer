@@ -288,7 +288,7 @@ for i in range(len(x_coords)):
         line=dict(width=5,color=color),
         name=f'Arc {i}',
         hoverinfo='text',
-        hovertext=f'{des}<br>Pitch Type: {pitch}<br>Inning: {inning}<br>Pitcher: {pitcher}<br>{ys}',
+        hovertext=f'{des}<br>Pitch Type: {pitch}<br>Inning: {inning}<br>Pitcher: {pitcher}',
 
     ))
 for i in range(len(x_coords)):
