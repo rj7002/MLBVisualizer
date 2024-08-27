@@ -579,7 +579,7 @@ for i in range(len(x_coords)):
         y=[p1[1], p1[1]],
         z=[0.05, 0.05],
         mode='markers',
-        marker=dict(size=2, color='white'),
+        marker=dict(size=2, color=color),
         # name=f'Endpoints {i + 1}'
         hoverinfo='text',
         hovertext=f'{des}<br>Pitch Type: {pitch}<br>Inning: {inning}<br>Pitcher: {pitcher}',
