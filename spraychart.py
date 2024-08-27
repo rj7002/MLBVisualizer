@@ -267,6 +267,8 @@ for i in range(len(x_coords)):
     x2 = x_coords2[i]
     y2 = y_coords2[i]
     launch_angle = launch_angles[i]
+    if launch_angle < 0:
+        launch_angle = 0
     
     # Define the start and end points
     p1 = np.array([x1, y1, z_value])
