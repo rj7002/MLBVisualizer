@@ -77,7 +77,7 @@ pitchers = df['player_name'].unique()
 formatted_names = [f"{name.split(', ')[1]} {name.split(', ')[0]}" for name in pitchers]
 filterby = st.selectbox('Filter by',['Batter','Pitcher','Type Hit'])
 if filterby == 'Pitcher':
-    # data = pitching_stats_range(date,date2)
+    data = pitching_stats_range(date,date2)
     selectp = st.multiselect('Select a pitcher',formatted_names)
     selectp2 = []
     for name in selectp:
@@ -103,7 +103,7 @@ elif filterby == 'Type Hit':
     typehit = st.multiselect('Select a type of hit',hittypes)
     df2 = df[df['events'].isin(typehit)]
 else:
-    # data = batting_stats_range(date,date2)
+    data = batting_stats_range(date,date2)
 
     df2 = df
 
@@ -918,29 +918,29 @@ fig.update_layout(
 # Show plot
 import streamlit as st
 with col2:
-    # data = data[data['Name'].isin(selectp)] (remove not working)
-    # if filterby != 'Pitcher':
-    #     for index, row in data.iterrows():
-    #         st.write(f"Name: {row['Name']}")
-    #         st.write(f"Age: {row['Age']}")
-    #         st.write(f"Plate Appearances: {row['PA']}")
-    #         st.write(f"At Bats: {row['AB']}")
-    #         st.write(f"Hits: {row['H']}")
-    #         st.write(f"Batting Average: {row['BA']}")
-    #         st.write(f"OBP: {row['OBP']}")
-    #         st.write(f"SLG: {row['SLG']}")
-    #         st.write(f"OPS: {row['OPS']}")
-    # else:
-    #     for index, row in data.iterrows():
-    #         st.write(f"Name: {row['Name']}")
-    #         st.write(f"Age: {row['Age']}")
-    #         st.write(f"Games: {row['G']}")
-    #         st.write(f"Wins: {row['W']}")
-    #         st.write(f"Losses: {row['L']}")
-    #         st.write(f"Innings Pitched: {row['IP']}")
-    #         st.write(f"Strikeouts: {row['SO']}")
-    #         st.write(f"ERA: {row['ERA']}")
-    #         st.write(f"WHIP: {row['WHIP']}")
+    data = data[data['Name'].isin(selectp)] 
+    if filterby != 'Pitcher':
+        for index, row in data.iterrows():
+            st.write(f"Name: {row['Name']}")
+            st.write(f"Age: {row['Age']}")
+            st.write(f"Plate Appearances: {row['PA']}")
+            st.write(f"At Bats: {row['AB']}")
+            st.write(f"Hits: {row['H']}")
+            st.write(f"Batting Average: {row['BA']}")
+            st.write(f"OBP: {row['OBP']}")
+            st.write(f"SLG: {row['SLG']}")
+            st.write(f"OPS: {row['OPS']}")
+    elif filterby == 'Pitcher:
+        for index, row in data.iterrows():
+            st.write(f"Name: {row['Name']}")
+            st.write(f"Age: {row['Age']}")
+            st.write(f"Games: {row['G']}")
+            st.write(f"Wins: {row['W']}")
+            st.write(f"Losses: {row['L']}")
+            st.write(f"Innings Pitched: {row['IP']}")
+            st.write(f"Strikeouts: {row['SO']}")
+            st.write(f"ERA: {row['ERA']}")
+            st.write(f"WHIP: {row['WHIP']}")
     st.plotly_chart(fig)
     
 
