@@ -930,7 +930,7 @@ with col2:
             st.write(f"OBP: {row['OBP']}")
             st.write(f"SLG: {row['SLG']}")
             st.write(f"OPS: {row['OPS']}")
-    elif filterby == 'Pitcher:
+    elif filterby == 'Pitcher':
         for index, row in data.iterrows():
             st.write(f"Name: {row['Name']}")
             st.write(f"Age: {row['Age']}")
