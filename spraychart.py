@@ -184,8 +184,8 @@ for index, row in df2.iterrows():
     #     x_values.append(row['hc_x']*3)
     # else:
     # # Append the value from column 'x' to the list
-    # if 206.26-row['hc_y'] > 150:
-    #     row['hc_y'] = randint(58,60)
+    if 206.26-row['hc_y'] > 150:
+        row['hc_y'] = randint(58,60)
     if 'homer' in row['des'] or 'grand slam' in row['des']:
         row['hc_y'] = randint(35,40)
 
