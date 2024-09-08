@@ -54,6 +54,15 @@ def display_player_image(player_id, width2, caption2):
         f'</div>',
         unsafe_allow_html=True
     )
+st.markdown("""
+    <style>
+    .big-font {
+        font-size: 100px !important;
+        text-align: center;
+    }
+    </style>
+    <p class="big-font">MLB Visualizer</p>
+    """, unsafe_allow_html=True)
 # Get the current date and time
 now = datetime.now()
 previous_date = now - timedelta(days=1)
