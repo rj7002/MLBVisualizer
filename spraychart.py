@@ -65,7 +65,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 # Get the current date and time
 now = datetime.now()
-previous_date = now - timedelta(days=1)
+previous_date = now - timedelta(days=2)
 
 
 # Format the date as yyyy-mm-dd
