@@ -84,7 +84,7 @@ df = df.fillna(0)
 # df2 = df.tail(1000)
 pitchers = df['player_name'].unique()
 formatted_names = [f"{name.split(', ')[1]} {name.split(', ')[0]}" for name in pitchers]
-filterby = st.selectbox('Filter by',['Batter','Pitcher','Type Hit'])
+filterby = st.selectbox('Filter by',['Batter','Pitcher','Hit Type'])
 if filterby == 'Pitcher':
     # data = pitching_stats_range(date,date2)
     selectp = st.multiselect('Select a pitcher',formatted_names)
@@ -107,7 +107,7 @@ if filterby == 'Pitcher':
     df2 = df2[~((df2['des'].str.contains("caught", case=False, na=False)))]
 
     ids = df2['pitcher'].unique()
-elif filterby == 'Type Hit':
+elif filterby == 'Hit Type':
     hittypes = df['events'].unique()
     typehit = st.multiselect('Select a type of hit',hittypes)
     df2 = df[df['events'].isin(typehit)]
