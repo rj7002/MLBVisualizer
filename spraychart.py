@@ -650,7 +650,7 @@ fig.update_layout(
 )
 
 # st.subheader(f'{hitters} Hits Chart')
-if filterby != 'Type Hit':
+if filterby != 'Hit Type':
         for id in reversed(ids):
             display_player_image(id,250,'')
         # for i in range(len(ids)):
