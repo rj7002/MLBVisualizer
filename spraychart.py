@@ -391,7 +391,7 @@ if formatted_date:
             # Adjust the apex height based on the launch angle
             # Example conversion: Adjust this scaling factor as needed
             if 'homer' in des.lower():
-                height_scaling_factor = 0.75 # Adjust this factor to change how launch angle affects height
+                height_scaling_factor = 0.50 # Adjust this factor to change how launch angle affects height
             else:
                 height_scaling_factor = 0.5
             h = height_scaling_factor * np.tan(np.radians(launch_angle)) * np.linalg.norm(p2 - p1)
