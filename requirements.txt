@@ -7,3 +7,4 @@ pandas
 datetime
 requests
 scipy
+trimesh
