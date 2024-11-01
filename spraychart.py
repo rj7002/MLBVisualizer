@@ -264,7 +264,10 @@ if formatted_date:
         # st.write(df.columns)
         # st.write(df)
         hometeam = df['home_team'].iloc[0].lower()
-        stl_file_path = f'stadium_{hometeam}.stl'
+        if hometeam == 'phi'
+             stl_file_path = f'simplify_stadium_{hometeam}.stl'
+        else:
+            stl_file_path = f'stadium_{hometeam}.stl'
 
 
         scatter_points = df[['hc_x', 'hc_y']]  # Make sure these columns exist in your DataFrame
