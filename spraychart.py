@@ -85,7 +85,7 @@ def plot_points_on_stl(stl_file_path, scatter_points):
         y=scatter_points['hc_y'],  # Assuming this is the y-axis
         z=len(scatter_points['hc_x'])*[0],  # Assuming this is the z-axis
         mode='markers',
-        marker=dict(size=3, color='red'),
+        marker=dict(size=3, color=scatter_points['color']),
         hoverinfo='text',
         hovertext=df['des']
     ))
@@ -270,7 +270,7 @@ if formatted_date:
             stl_file_path = f'stadium_{hometeam}.stl'
 
 
-        scatter_points = df[['hc_x', 'hc_y']]  # Make sure these columns exist in your DataFrame
+        scatter_points = df[['hc_x', 'hc_y','color']]  # Make sure these columns exist in your DataFrame
 
 
         # Call the function to plot STL with scatter points
