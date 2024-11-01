@@ -260,7 +260,7 @@ if formatted_date:
         df['hc_x'] = df['hc_x']-125.42
         df['hc_x'] = df['hc_x']*.75
         df['hc_y'] = 206.27-df['hc_y']
-        df['hc_y'] = df['hc_y']*.75
+        df['hc_y'] = df['hc_y']*.70
         # st.write(df.columns)
         # st.write(df)
         hometeam = df['home_team'].iloc[0].lower()
