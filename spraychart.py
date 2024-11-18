@@ -502,7 +502,7 @@ if formatted_date:
             ]
             
             # Create a figure for the legend with transparent background
-            legendfig, ax = plt.subplots(figsize=(4, 2), facecolor='none')  # 'none' ensures transparency
+            legendfig, ax = plt.subplots(figsize=(3, 1.5), facecolor='none')  # 'none' ensures transparency
             ax.axis('off')  # Turn off the axes
             
             # Add the legend to the figure
