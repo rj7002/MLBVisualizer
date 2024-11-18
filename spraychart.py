@@ -501,13 +501,15 @@ if formatted_date:
                 for _, row in unique_pitches.iterrows()
             ]
             
-            # Create a figure for the legend
-            fig, ax = plt.subplots(figsize=(4, 2))
+            # Create a figure for the legend with transparent background
+            legendfig, ax = plt.subplots(figsize=(4, 2), facecolor='none')  # 'none' ensures transparency
             ax.axis('off')  # Turn off the axes
             
             # Add the legend to the figure
-            legend = ax.legend(handles=handles, title="Pitch Legend", loc='center')
-            st.pyplot(plt)
+            legend = ax.legend(handles=handles, title="Pitch Legend", loc='center', frameon=False)  # `frameon=False` for no box
+            
+            # Display the legend figure in Streamlit
+            st.pyplot(legendfig, transparent=True)
             col1, col2 = st.columns(2)
             with col1:
                 st.plotly_chart(fig,use_container_width=True)
