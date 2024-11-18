@@ -490,7 +490,24 @@ if formatted_date:
                 for col, row in zip(cols, dfimage.itertuples()):
                     with col:
                             display_player_image(row.player_id,200,'')
+            import matplotlib.pyplot as plt
 
+            # Extract unique pitches and their corresponding colors
+            unique_pitches = df[['pitch_name', 'color']].drop_duplicates()
+            
+            # Create legend handles
+            handles = [
+                plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=row['color'], markersize=10, label=row['pitch_name'])
+                for _, row in unique_pitches.iterrows()
+            ]
+            
+            # Create a figure for the legend
+            fig, ax = plt.subplots(figsize=(4, 2))
+            ax.axis('off')  # Turn off the axes
+            
+            # Add the legend to the figure
+            legend = ax.legend(handles=handles, title="Pitch Legend", loc='center')
+            st.pyplot(plt)
             col1, col2 = st.columns(2)
             with col1:
                 st.plotly_chart(fig,use_container_width=True)
