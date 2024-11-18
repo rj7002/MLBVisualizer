@@ -509,8 +509,8 @@ if formatted_date:
             legend = ax.legend(handles=handles, title="Pitch Legend", loc='center', frameon=False)  # `frameon=False` for no box
             
             # Display the legend figure in Streamlit
-            st.pyplot(legendfig, transparent=True)
             col1, col2 = st.columns(2)
+            st.pyplot(legendfig, transparent=True)
             with col1:
                 st.plotly_chart(fig,use_container_width=True)
 
