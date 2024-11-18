@@ -502,11 +502,11 @@ if formatted_date:
             ]
             
             # Create a figure for the legend with transparent background
-            legendfig, ax = plt.subplots(figsize=(2, 2), facecolor='none')  # 'none' ensures transparency
+            legendfig, ax = plt.subplots(figsize=(4, 4), facecolor='none')  # 'none' ensures transparency
             ax.axis('off')  # Turn off the axes
             
             # Add the legend to the figure
-            legend = ax.legend(handles=handles, title="Pitch Legend", loc='center', frameon=False)  # `frameon=False` for no box
+            legend = ax.legend(handles=handles, title="Pitch Legend", loc='upper center', frameon=False)  # `frameon=False` for no box
             
             # Display the legend figure in Streamlit
             col1, col2 = st.columns(2)
