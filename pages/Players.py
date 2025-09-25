@@ -170,19 +170,6 @@ if name:
     formattedstart = start.strftime('%Y-%m-%d')
     formattedend = end.strftime('%Y-%m-%d')
 
-# date2 = st.text_input('Enter an end date',placeholder='YYYY-MM-DD',value=currentdate)
-# try:
-#     # Parse the input date
-#     parsed_date = datetime.strptime(date, '%Y-%m-%d')
-    
-#     # Extract year, month (in word form), and day
-#     year = parsed_date.year
-#     month = parsed_date.strftime('%B')  # Full month name
-#     day = parsed_date.day
-    
-#     st.write(f"Year: {year}, Month: {month}, Day: {day}")
-# except ValueError:
-#     st.error("Please enter a valid date in YYYY-MM-DD format.")
 @st.cache_data
 def load_data(start,end,playerid,type):
     if type == 'Hitter':
@@ -193,13 +180,6 @@ def load_data(start,end,playerid,type):
 if formattedstart:
     df = load_data(formattedstart,formattedend,playerid,type)
     playerteam = df['home_team'].value_counts().reset_index()['home_team'].iloc[0]
-    # if type == 'Hitter':
-    #     df = df[df['description'] == 'hit_into_play']
-    # else:
-    #     # df = df[df['type'] == 'B']
-    #     df = df
-   
-    # st.write(df.columns)
     home = df[df['home_team'] == playerteam]
     away = df[df['home_team'] != playerteam]
     homeaway = st.sidebar.selectbox('Home or Away',['Home','Away'])
@@ -378,8 +358,7 @@ if formattedstart:
         df['hc_x'] = df['hc_x']*.70
         df['hc_y'] = 206.27-df['hc_y']
         df['hc_y'] = df['hc_y']*.70
-        st.write(df.columns)
-        # st.write(df)
+
         hometeam = df['home_team'].iloc[0].lower()
         if hometeam == 'phi':
             stl_file_path = 'stlfolder/simplify_stadium_phi.stl'
