@@ -10,3 +10,4 @@ scipy
 trimesh
 lightgbm
 scikit-learn
+xgboost
