@@ -324,8 +324,8 @@ if formattedstart:
         # byPlayer['totalABs'] = totalabs
         # byPlayer['xBA'] = byPlayer['xHit']/totalabs
         # byPlayer['BA'] = byPlayer['hit']/totalabs
-        st.subheader(f'xHits: {byPlayer['xHit'].iloc[0]}')
-        st.subheader(f'Hits: {byPlayer['hit'].iloc[0]}')
+        # st.subheader(f'xHits: {byPlayer['xHit'].iloc[0]}')
+        # st.subheader(f'Hits: {byPlayer['hit'].iloc[0]}')
 
      
         names_list = []
