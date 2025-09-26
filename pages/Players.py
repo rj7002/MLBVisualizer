@@ -315,7 +315,7 @@ if formattedstart:
 
       
     
-        byPlayer = df[df['description'] == 'hit_into_play'].groupby('player_name').agg({'xHit': 'sum', 'hit': 'sum'}).reset_index()
+        byPlayer = df[df['hit'] == 1].groupby('player_name').agg({'xHit': 'sum', 'hit': 'sum'}).reset_index()
         byPlayer = byPlayer.sort_values(by='xHit', ascending=False).reset_index(drop=True)
         byPlayer['xHit'] = byPlayer['xHit'].apply(lambda x: round(x, 3))    
         # totalpitches = len(df)
